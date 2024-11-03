@@ -1,0 +1,358 @@
+.host-game {
+  font-family: Arial, sans-serif;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.host-game h2 {
+  margin-bottom: 10px;
+}
+
+.host-game h3 {
+  margin-top: 20px;
+}
+
+.host-game h2, .host-game h3, .host-game h4 {
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.game-info {
+  background-color: #f0f0f0;
+  padding: 20px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.game-code {
+  margin: 20px 0;
+}
+
+.game-code h1 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+
+.game-code .code {
+  font-size: 48px;
+  font-weight: bold;
+  color: #3498db;
+  padding: 15px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  margin: 10px 0;
+  letter-spacing: 2px;
+}
+
+.players-section {
+  margin-bottom: 30px;
+}
+
+.players-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.players-list li {
+  padding: 10px 15px;
+  margin-bottom: 10px;
+  background-color: #e8eaf6;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.player-position {
+  margin-right: 10px;
+  font-weight: bold;
+  min-width: 30px;
+}
+
+.player-name {
+  flex-grow: 1;
+  text-align: left;
+}
+
+.player-score {
+  font-weight: bold;
+  min-width: 60px;
+  /* text-align: right; */
+}
+
+.remaining-players {
+  margin-top: 20px;
+  width: 100%;
+}
+
+.remaining-players li {
+  padding: 10px;
+  margin-bottom: 5px;
+  background-color: #f6f6f6;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.current-question {
+  background-color: #e8f5e9;
+  padding: 15px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+.current-question p {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.host-game button {
+  display: block;
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 10px;
+  font-size: 16px;
+  color: white;
+  background-color: #3498db;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.host-game button:hover {
+  background-color: #2980b9;
+}
+
+.host-game button.end-game {
+  background-color: #e74c3c;
+}
+
+.host-game button.end-game:hover {
+  background-color: #c0392b;
+}
+
+.players-list .top-player {
+  font-weight: bold;
+}
+
+.top-player-1 {
+  background-color: #ffd700 !important;
+}
+
+.top-player-2 {
+  background-color: #c0c0c0 !important;
+}
+
+.top-player-3 {
+  background-color: #cd7f32 !important;
+}
+
+.other-player {
+  border-top: 1px solid #000000;
+}
+
+.highest-streak {
+  background-color: #fff9c4;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.final-leaderboard {
+  background-color: #e8eaf6;
+  border-radius: 10px;
+  padding: 20px;
+  margin-top: 20px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  /* width: 100%; */
+}
+
+.final-leaderboard h3 {
+  margin-top: 0;
+  margin-bottom: 15px;
+  color: #333;
+  text-align: center;
+}
+
+.top-players {
+  background-color: #e3f2fd;
+  border-radius: 5px;
+  padding: 15px;
+  margin-bottom: 20px;
+}
+
+button {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+button.end-game {
+  background-color: #f44336;
+}
+
+button.end-game:hover {
+  background-color: #d32f2f;
+}
+
+.waiting-players-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.waiting-players-list li {
+  padding: 10px 15px;
+  margin-bottom: 5px;
+  background-color: #f0f0f0;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+}
+
+.waiting-players-list .player-number {
+  margin-right: 10px;
+  font-weight: bold;
+}
+
+.waiting-players-list .player-name {
+  flex-grow: 1;
+  text-align: left;
+}
+
+.podium {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  margin: 20px 0;
+  padding: 20px;
+  height: 250px; /* Increased height to accommodate medals */
+  position: relative;
+}
+
+.podium-item {
+  width: 120px;
+  margin: 0 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+}
+
+/* Add specific z-index for each position */
+.podium-item:nth-child(1) { /* Second place */
+  z-index: 2;
+}
+
+.podium-item:nth-child(2) { /* First place */
+  z-index: 3;
+}
+
+.podium-item:nth-child(3) { /* Third place */
+  z-index: 1;
+}
+
+.podium-medal {
+  font-size: 28px;
+  margin-bottom: 10px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 4; /* Medals always on top */
+}
+
+.podium-rank {
+  width: 100%;
+  background-color: #f0f0f0;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+}
+
+.podium-first {
+  height: 150px;
+  background-color: #ffd700; /* Gold */
+}
+
+.podium-second {
+  height: 120px;
+  background-color: #c0c0c0; /* Silver */
+}
+
+.podium-third {
+  height: 90px;
+  background-color: #cd7f32; /* Bronze */
+}
+
+.podium-player {
+  font-weight: bold;
+  margin-bottom: 5px;
+  word-wrap: break-word;
+  max-width: 100%;
+  font-size: 0.9em;
+}
+
+.podium-score {
+  font-size: 0.9em;
+}
+
+@media (max-width: 600px) {
+  .podium-item {
+    width: 90px;
+  }
+
+  .podium-first {
+    height: 120px;
+  }
+
+  .podium-second {
+    height: 100px;
+  }
+
+  .podium-third {
+    height: 80px;
+  }
+
+  .podium-medal {
+    font-size: 24px;
+    margin-bottom: 5px;
+  }
+
+  .podium-player {
+    font-size: 0.8em;
+  }
+}
+
+/* Media queries for better mobile display */
+@media (max-width: 768px) {
+  .game-code .code {
+    font-size: 36px;
+    padding: 10px;
+  }
+}

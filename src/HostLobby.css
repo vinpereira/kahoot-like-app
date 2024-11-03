@@ -1,0 +1,11 @@
+.host-lobby {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+}
+
+.host-lobby h2 {
+  margin-bottom: 30px;
+  color: #333;
+}
