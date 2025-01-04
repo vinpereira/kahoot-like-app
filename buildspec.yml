@@ -9,7 +9,7 @@ phases:
   post_build:
     commands:
       # Copy files generated in S3 bucket
-      - aws s3 sync build/ s3://$BUCKET_NAME/ --delete
+      - aws s3 sync build/ s3://$WEBSITE_BUCKET/ --delete
 
       # Invalidate CDN cache to load the new index.html
       - aws cloudfront create-invalidation --distribution-id $CLOUDFRONT_DISTRIBUTION_ID --paths "/*"
