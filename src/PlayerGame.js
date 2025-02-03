@@ -23,9 +23,6 @@ const PlayerGame = () => {
   const [totalPlayers, setTotalPlayers] = useState(null);
   const [isHighestStreakPlayer, setIsHighestStreakPlayer] = useState(false);
   const [finalLeaderboard, setFinalLeaderboard] = useState(null);
-  const answerTimeoutRef = useRef(null);
-  const [timeLeft, setTimeLeft] = useState(30);
-  const timerIntervalRef = useRef(null);
 
   const backToLobby = useCallback(() => {
     navigate('/');
@@ -41,11 +38,6 @@ const PlayerGame = () => {
         answer 
       }));
       setHasAnswered(true);
-
-      // Clear the timeout since we've submitted an answer
-      if (answerTimeoutRef.current) {
-        clearTimeout(answerTimeoutRef.current);
-      }
     }
   }, [gameCode, currentQuestion, hasAnswered, nickname]);
 
@@ -81,35 +73,6 @@ const PlayerGame = () => {
           setCurrentQuestion(data);
           setAnswerResult(null);
           setHasAnswered(false);
-
-          // Clear any existing timeout
-          if (answerTimeoutRef.current) {
-            clearTimeout(answerTimeoutRef.current);
-          }
-          
-          // Set new timeout for 30 seconds
-          answerTimeoutRef.current = setTimeout(() => {
-            if (!hasAnswered) {
-              console.log('Time is up! Submitting empty answer.');
-              submitAnswer(''); // Submit empty answer after timeout
-            }
-          }, 30000); // 30 seconds
-
-          // Reset and start timer
-          setTimeLeft(30);
-          if (timerIntervalRef.current) {
-            clearInterval(timerIntervalRef.current);
-          }
-          timerIntervalRef.current = setInterval(() => {
-            setTimeLeft(prev => {
-              if (prev <= 1) {
-                clearInterval(timerIntervalRef.current);
-                return 0;
-              }
-              return prev - 1;
-            });
-          }, 1000);
-
           setGameState('playing');
           break;
         case 'answerResult':
@@ -155,10 +118,6 @@ const PlayerGame = () => {
         case 'gameEnded':
           console.log('Data in the end:', data);
           console.log('Leaderboard in the end:', data.leaderboard);
-          // Clear timeout if game ends
-          if (answerTimeoutRef.current) {
-            clearTimeout(answerTimeoutRef.current);
-          }
           setFinalLeaderboard(data.leaderboard);
           setGameState('ended');
           break;
@@ -187,11 +146,8 @@ const PlayerGame = () => {
       if (wsRef.current) {
         wsRef.current.close();
       }
-      if (answerTimeoutRef.current) {
-        clearTimeout(answerTimeoutRef.current);
-      }
     };
-  }, [gameCode, submitAnswer, hasAnswered]);
+  }, [gameCode]);
 
   const handleSubmitNickname = useCallback(() => {
     if (nickname.trim() && wsRef.current && wsRef.current.readyState === WebSocket.OPEN) {
@@ -270,9 +226,6 @@ const PlayerGame = () => {
   if (gameState === 'playing') {
     return (
       <div className="player-game">
-        <div className="timer" style={{ color: timeLeft <= 5 ? 'red' : 'inherit' }}>
-          Time left: {timeLeft}s
-        </div>
         <h2>Your Score: {score}</h2>
         <h3>Current Streak: {streak}</h3>
         {currentQuestion && (

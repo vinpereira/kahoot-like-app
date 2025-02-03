@@ -173,13 +173,6 @@ h2 {
   margin: 0 auto;
 } */
 
-.timer {
-  font-size: 1.2em;
-  font-weight: bold;
-  margin: 10px 0;
-  transition: color 0.3s ease;
-}
-
 .highest-streak-message {
   color: #4CAF50;
   font-weight: bold;

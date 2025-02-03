@@ -89,7 +89,7 @@ const HostGame = ({ questions }) => {
   const [currentQuestionText, setCurrentQuestionText] = useState('');
   const [totalQuestions, setTotalQuestions] = useState(0);
   const [finalLeaderboard, setFinalLeaderboard] = useState(null);
-  
+
   useEffect(() => {
     console.log('HostGame mounted. GameId:', gameId, 'GameCode:', gameCode);
     
@@ -212,7 +212,7 @@ const HostGame = ({ questions }) => {
       setError('Cannot end game. Connection to server lost.');
     }
   }, [ws, gameId]);
-
+1
   const nextQuestion = useCallback(() => {
     if (ws && ws.readyState === WebSocket.OPEN) {
       // if (currentQuestionIndex < questions.length - 1) {
@@ -246,7 +246,7 @@ const HostGame = ({ questions }) => {
             <h1>Game Code:</h1>
             <div className='code'>{gameCode}</div>
           </div>
-          <p>Game State: Waiting for players</p>
+          <p>Game State: {gameState}</p>
           <p>{totalQuestions} questions available</p>
           <p>Share this code with players to join the game.</p>
         </div>
@@ -274,7 +274,7 @@ const HostGame = ({ questions }) => {
       )}
 
       {(gameState === 'playing' || gameState === 'roundEnded') && (
-        <>        
+        <>     
           {currentQuestionText && (
             <div className="current-question">
               <h3>Current Question: {currentQuestionNumber + 1} / {totalQuestions}</h3>
