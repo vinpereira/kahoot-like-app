@@ -212,7 +212,7 @@ const HostGame = ({ questions }) => {
       setError('Cannot end game. Connection to server lost.');
     }
   }, [ws, gameId]);
-1
+
   const nextQuestion = useCallback(() => {
     if (ws && ws.readyState === WebSocket.OPEN) {
       // if (currentQuestionIndex < questions.length - 1) {
